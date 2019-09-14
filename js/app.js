@@ -32,13 +32,14 @@ function getData(e){
     }else {
         github.getGithubData(username)
         .then(response => {
-            if(response.user.massage === "Not Found"){
-                console.log(error);
+            if(response.user.message === "Not Found"){
+                ui.showError("User didn't find");
             }else {
                 ui.showUserInfo(response.user);
+                ui.showRepoInfo(response.repo);
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => ui.showError(err));
     }
 
     ui.clearInput();
