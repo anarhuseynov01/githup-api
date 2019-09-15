@@ -51,7 +51,10 @@ function getData(e){
 
 function clearAllSearched(){
 
-
+    if(confirm("Are you sure?")){
+        Storage.clearAllSearchedUsersFromStorage();
+        ui.clearAllSearchedUI();
+    }
 
 }
 

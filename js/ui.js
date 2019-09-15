@@ -110,4 +110,10 @@ class UI {
             this.lastUsers.appendChild(li);
         }
     }
+
+    clearAllSearchedUI(){
+        while(this.lastUsers.firstElementChild !== null) {
+            this.lastUsers.removeChild(this.lastUsers.firstElementChild);
+        }
+    }
 }
