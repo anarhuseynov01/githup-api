@@ -35,6 +35,8 @@ function getData(e){
             if(response.user.message === "Not Found"){
                 ui.showError("User didn't find");
             }else {
+                ui.addSearchedToUI(username);
+                Storage.addSearchUserToStorage(username);
                 ui.showUserInfo(response.user);
                 ui.showRepoInfo(response.repo);
             }
@@ -55,5 +57,11 @@ function clearAllSearched(){
 
 
 function getAllSearched(){
+    let users = Storage.getSearchedUserFromStorage();
+    let result = "";
+    users.forEach((user)=>{
+        result += `<li class="list-group-item">${user}</li>`
+    })
 
+    lastUsers.innerHTML = result;
 }
